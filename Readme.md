@@ -13,19 +13,17 @@ the Linux operating system. The file encryption programs ufsend and ufrec take t
 ufsend < input file > [-d < IP-addr:port > ][ -l ]
 ufrec < filename > [-d < port > ][ -l ]
 ```
-```
 ufsend takes an input file and transmits it to the IP address/port specified on the command-line (-d op-
 tion), or dumps the encrypted contents of the input file to an output file of the same name, but with the added
 extension “.ufsec”. ufrec either runs as a network daemon (-d), awaiting incoming network connections on the
 command-line specified network port. When a connection comes in, it writes the file data to “filename” and
 exits, or ufrec runs in local mode (-l) in which it bypasses the network functionality and simply decrypts a file
 specified as input. The output will be the original filename without this additional extension.
-```
-```
+
 On each invocation, ufsend and ufrec prompt the user for a password. This password will be used to se-
 curely generate an encryption using PBKDF2 (Password Based Key Derivation Function 2). When running
 PBKDF2, SHA-512 with 4096 iterations were used and the string “CalciumChloride” was used as the salt.
-```
+
 ## 2 Program design
 
 To obtain the key from a password input, the function PKCS5_PBKDF2_HMAC was used. This function
