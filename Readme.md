@@ -1,6 +1,4 @@
-# CNT 5410: Assignment 2
 
-# Report
 
 ## Abhiti Sachdeva
 
